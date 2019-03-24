@@ -13124,7 +13124,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2><a href="../index.html#relaciones_interprovinciales_en_espanha" style="color:grey;text-decoration: none"> &lt; Volver al Índice</h2>
+<h2><a href="../index.html#relaciones_interprovinciales_en_espanha" style="color:grey;text-decoration: none"> &lt; &lt; Volver al Índice</h2>
 
 </div>
 </div>
@@ -13134,6 +13134,14 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <div style="text-align:center"><span style="color:green; font-family:Georgia; font-size:3em;">Relaciones Interprovinciales en España</span></div><hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>En esta entrada analizamos los datos de la <strong>Estadística de Nacimientos</strong> que elabora cada año el Instituto Nacional de Estadística (INE), prestando especial atención a las provincias de origen de los padres de los nacidos.</p>
 
 </div>
 </div>
@@ -13166,9 +13174,18 @@ div#notebook {
 <p>Descargamos los ficheros de Nacimientos correspondientes a los años que queremos analizar, en la siguiente dirección del INE:</p>
 <p><a href="http://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&amp;cid=1254736177007&amp;menu=resultados&amp;secc=1254736195443&amp;idp=1254735573002">http://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&amp;cid=1254736177007&amp;menu=resultados&amp;secc=1254736195443&amp;idp=1254735573002</a></p>
 <p>Solamente nos descargamos los ficheros posteriores a 2007, porque los de años anteriores involucran metodologías heterogéneas.</p>
-<p>En nuestro directorio de trabajo los almacenamos en la carpeta <strong>/despues_2007</strong>, separando por un lado los ficheros de microdatos propios de cada año, de los metadatos que vienen con cada uno de ellos, y que son iguales para todos.</p>
-<p>Los microdatos van en <strong>/despues_2007/microdatos</strong>, y los metadatos en <strong>/despues_2007/metadatos</strong></p>
-<p>Tenemos además otra carpeta con todos los metadatos que hemos traído de otras fuentes, ubicada en <strong>/despues_2007/metadatos/externos</strong></p>
+<p>En nuestro directorio de trabajo los almacenamos en la carpeta <strong>../../datos/relaciones_interprovinciales_en_espanha</strong>, separando por un lado los ficheros de <strong>microdatos</strong> propios de cada año, de los <strong>metadatos</strong> que vienen con cada uno de ellos, y que son iguales para todos.</p>
+<p>Tenemos además otra carpeta con todos los metadatos que hemos traído de otras fuentes, ubicada en <strong>externos</strong></p>
+<h3 id="Estructura-de-Carpetas-de-Datos">Estructura de Carpetas de Datos<a class="anchor-link" href="#Estructura-de-Carpetas-de-Datos">&#182;</a></h3><ul>
+<li><strong>../../datos/relaciones_interprovinciales_en_espanha</strong><ul>
+<li><strong>microdatos</strong></li>
+<li><strong>metadatos</strong><ul>
+<li><strong>externos</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13182,7 +13199,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[245]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
@@ -13238,11 +13255,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[246]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">metadatos_ine</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;despues_2007/metadatos/Diseñoanonimizadonacimientos.xls&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">metadatos_ine</span> <span class="o">=</span> <span class="n">metadatos</span><span class="p">[[</span><span class="s1">&#39;Longitud&#39;</span><span class="p">,</span><span class="s1">&#39;Nombre&#39;</span><span class="p">,</span><span class="s1">&#39;Descripción&#39;</span><span class="p">]]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ruta_datos</span> <span class="o">=</span> <span class="s2">&quot;../../datos/relaciones_interprovinciales_en_espanha/&quot;</span>
 </pre></div>
 
     </div>
@@ -13252,7 +13268,21 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[247]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">metadatos_ine</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">ruta_datos</span> <span class="o">+</span> <span class="s2">&quot;metadatos/Diseñoanonimizadonacimientos.xls&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">metadatos_ine</span> <span class="o">=</span> <span class="n">metadatos_ine</span><span class="p">[[</span><span class="s1">&#39;Longitud&#39;</span><span class="p">,</span><span class="s1">&#39;Nombre&#39;</span><span class="p">,</span><span class="s1">&#39;Descripción&#39;</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">metadatos_ine</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -13268,7 +13298,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[247]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -13358,10 +13388,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[248]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">metadatos_provincias</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;despues_2007/metadatos/externos/metadatos_provincias.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;iso8859_3&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">metadatos_provincias</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ruta_datos</span> <span class="o">+</span> <span class="s2">&quot;metadatos/externos/metadatos_provincias.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;iso8859_3&#39;</span><span class="p">)</span>
 <span class="n">metadatos_provincias</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -13375,7 +13405,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[248]:</div>
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -13467,7 +13497,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[249]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dict_cod_prov</span>  <span class="o">=</span> <span class="p">{</span><span class="n">provincia</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">provincia</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">provincia</span> <span class="ow">in</span> <span class="n">metadatos_provincias</span><span class="o">.</span><span class="n">itertuples</span><span class="p">()}</span>
@@ -13493,11 +13523,11 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[250]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pip_pc_provincia</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;despues_2007/metadatos/externos/pip_pc_provincia.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;iso8859_3&#39;</span><span class="p">)</span>
-<span class="n">pip_pp_ccaa</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;despues_2007/metadatos/externos/pip_pp_ccaa.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;iso8859_3&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pip_pc_provincia</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ruta_datos</span> <span class="o">+</span> <span class="s2">&quot;metadatos/externos/pip_pc_provincia.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;iso8859_3&#39;</span><span class="p">)</span>
+<span class="n">pip_pp_ccaa</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ruta_datos</span> <span class="o">+</span> <span class="s2">&quot;metadatos/externos/pip_pp_ccaa.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;iso8859_3&#39;</span><span class="p">)</span>
 
 <span class="n">pip_pc_provincia</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;pip_pc&quot;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -13512,7 +13542,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[250]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -13584,7 +13614,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[251]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pip_pp_ccaa</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;pip_pc_ccaa&quot;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -13600,7 +13630,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[251]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -13681,7 +13711,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[252]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">provincias_ccaa</span> <span class="o">=</span> <span class="n">metadatos_provincias</span><span class="p">[[</span><span class="s1">&#39;Provincia&#39;</span><span class="p">,</span><span class="s1">&#39;CCAA&#39;</span><span class="p">]]</span>
@@ -13704,7 +13734,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[252]:</div>
+    <div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -13731,13 +13761,13 @@ Name: Provincia, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[253]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dict_provincias_ordenadas</span> <span class="o">=</span> <span class="p">{</span><span class="n">provincia</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">provincia</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">provincia</span> <span class="ow">in</span> <span class="n">provincias_ordenadas</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">itertuples</span><span class="p">()}</span>
 
 <span class="n">provincia_Muestra</span> <span class="o">=</span> <span class="s2">&quot;Barcelona&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">provincia_Muestra</span> <span class="o">+</span> <span class="s1">&#39; va de &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">provincias_ordenadas_dict</span><span class="p">[</span><span class="n">provincia_Muestra</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;ª&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">provincia_Muestra</span> <span class="o">+</span> <span class="s1">&#39; va de &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dict_provincias_ordenadas</span><span class="p">[</span><span class="n">provincia_Muestra</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;ª&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13772,12 +13802,12 @@ Name: Provincia, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[254]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">años</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2017</span><span class="p">]</span>
 
-<span class="n">ruta</span> <span class="o">=</span> <span class="s2">&quot;despues_2007/microdatos/&quot;</span>
+<span class="n">ruta_microdatos</span> <span class="o">=</span> <span class="n">ruta_datos</span> <span class="o">+</span> <span class="s2">&quot;microdatos/&quot;</span>
 
 <span class="k">if</span> <span class="ow">not</span> <span class="s2">&quot;DFs_&quot;</span> <span class="ow">in</span> <span class="nb">vars</span><span class="p">():</span>
     <span class="n">DFs_</span> <span class="o">=</span> <span class="p">{}</span>
@@ -13786,7 +13816,7 @@ Name: Provincia, dtype: object</pre>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">DFs</span><span class="p">[</span><span class="n">año</span><span class="p">]</span> <span class="o">=</span> <span class="n">DFs_</span><span class="p">[</span><span class="n">año</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-        <span class="n">DFs_</span><span class="p">[</span><span class="n">año</span><span class="p">]</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="n">ruta</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">año</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.txt&quot;</span><span class="p">,</span> <span class="n">widths</span><span class="o">=</span> <span class="n">metadatos_ine</span><span class="p">[</span><span class="s1">&#39;Longitud&#39;</span><span class="p">])</span>
+        <span class="n">DFs_</span><span class="p">[</span><span class="n">año</span><span class="p">]</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="n">ruta_microdatos</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">año</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.txt&quot;</span><span class="p">,</span> <span class="n">widths</span><span class="o">=</span> <span class="n">metadatos_ine</span><span class="p">[</span><span class="s1">&#39;Longitud&#39;</span><span class="p">])</span>
         <span class="n">DFs</span><span class="p">[</span><span class="n">año</span><span class="p">]</span> <span class="o">=</span> <span class="n">DFs_</span><span class="p">[</span><span class="n">año</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
 
@@ -13797,7 +13827,7 @@ Name: Provincia, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[255]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">DFs</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
@@ -13825,7 +13855,7 @@ Name: Provincia, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[256]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">DFs</span><span class="p">[</span><span class="n">año</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
@@ -13841,7 +13871,7 @@ Name: Provincia, dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[256]:</div>
+    <div class="prompt output_prompt">Out[19]:</div>
 
 
 
@@ -13913,7 +13943,7 @@ Name: Provincia, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[280]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39; Toda la información que contiene nuestro DataSet es tipo: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -13953,14 +13983,20 @@ Name: Provincia, dtype: object</pre>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A continuación, procedemos a elaborar una matriz que recoja el número de nacidos para cada combinación de origines provinciales de los padres:</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[281]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">suavizado_logarítmico</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="n">matrices</span> <span class="o">=</span> <span class="p">{}</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matrices</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">DFs</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
     
@@ -13974,15 +14010,9 @@ Name: Provincia, dtype: object</pre>
     <span class="c1"># rellenar matriz</span>
     <span class="k">for</span> <span class="n">nac</span> <span class="ow">in</span> <span class="n">DFs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">matrices</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">provincias_ordenadas_dict</span><span class="p">[</span><span class="n">nac</span><span class="p">[</span><span class="mi">1</span><span class="p">]]][</span><span class="n">provincias_ordenadas_dict</span><span class="p">[</span><span class="n">nac</span><span class="p">[</span><span class="mi">2</span><span class="p">]]]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">matrices</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">dict_provincias_ordenadas</span><span class="p">[</span><span class="n">nac</span><span class="p">[</span><span class="mi">1</span><span class="p">]]][</span><span class="n">dict_provincias_ordenadas</span><span class="p">[</span><span class="n">nac</span><span class="p">[</span><span class="mi">2</span><span class="p">]]]</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
             <span class="k">continue</span>
-            
-    <span class="k">if</span> <span class="n">suavizado_logarítmico</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>        
-    <span class="c1"># suavizar matriz</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">provincias_ordenadas</span><span class="p">)):</span>
-            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">provincias_ordenadas</span><span class="p">)):</span>
-                <span class="n">matrices</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">matrices</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
             
     <span class="c1"># etiquetar matriz</span>
     <span class="n">matrices</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">matrices</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
@@ -13997,7 +14027,37 @@ Name: Provincia, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[282]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">minimo_hijos</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">año_referencia</span> <span class="o">=</span> <span class="n">año</span>
+
+<span class="n">booleanos</span> <span class="o">=</span> <span class="nb">list</span><span class="p">((</span><span class="n">matrices</span><span class="p">[</span><span class="n">año_referencia</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">matrices</span><span class="p">[</span><span class="n">año_referencia</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span> <span class="o">&gt;</span> <span class="n">minimo_hijos</span><span class="p">)</span>
+<span class="n">provincias_significativas</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">dict_provincias_ordenadas</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">booleanos</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">DFs</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+    
+    <span class="c1"># restringir matriz</span>
+    <span class="n">matrices</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">matrices</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">provincias_significativas</span><span class="p">,</span><span class="n">provincias_significativas</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Dado que existen grandes diferencias en el número de nacidos con cada combinación de provincias de los padres, al haber provincias con poblaciones mucho mayores que otras, podemos considerar aplicar a las matrices creadas una función de suavizado logarítmico</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -14015,13 +14075,13 @@ Name: Provincia, dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[282]:</div>
+    <div class="prompt output_prompt">Out[31]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x28ce0c358&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x381658898&gt;]</pre>
 </div>
 
 </div>
@@ -14045,34 +14105,30 @@ Name: Provincia, dtype: object</pre>
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[283]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">minimo_hijos</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">año_referencia</span> <span class="o">=</span> <span class="n">año</span>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ilustración del efecto suavizador que produce la función logarítmica</p>
 
-<span class="n">booleanos</span> <span class="o">=</span> <span class="nb">list</span><span class="p">((</span><span class="n">matrices</span><span class="p">[</span><span class="n">año_referencia</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">matrices</span><span class="p">[</span><span class="n">año_referencia</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span> <span class="o">&gt;</span> <span class="n">minimo_hijos</span><span class="p">)</span>
-<span class="n">provincias_significativas</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">provincias_ordenadas_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">booleanos</span><span class="p">]</span>
-
-<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">DFs</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-    
-    <span class="c1"># restringir matriz</span>
-    <span class="n">matrices</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">matrices</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">provincias_significativas</span><span class="p">,</span><span class="n">provincias_significativas</span><span class="p">]</span>
-</pre></div>
-
-    </div>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Funci&#243;n-de-representaci&#243;n-gr&#225;fica-de-matrices:">Funci&#243;n de representaci&#243;n gr&#225;fica de matrices:<a class="anchor-link" href="#Funci&#243;n-de-representaci&#243;n-gr&#225;fica-de-matrices:">&#182;</a></h3><p>(con opción de suavizado logarítmico)</p>
 
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[285]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_matriz</span><span class="p">(</span><span class="n">matriz</span><span class="p">,</span> <span class="n">provincias_significativas</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_matriz</span><span class="p">(</span><span class="n">matriz</span><span class="p">,</span> <span class="n">provincias_significativas</span><span class="p">,</span> <span class="n">suavizado_logaritmico</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">suavizado_logaritmico</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">matriz</span> <span class="o">=</span> <span class="n">matriz</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">celda</span> <span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">celda</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">13</span><span class="p">))</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">matriz</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s2">&quot;Reds&quot;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">provincias_significativas</span><span class="p">)))</span>
@@ -14100,10 +14156,10 @@ Name: Provincia, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[286]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_matriz</span><span class="p">(</span><span class="n">matrices</span><span class="p">[</span><span class="n">año</span><span class="p">],</span> <span class="n">provincias_significativas</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_matriz</span><span class="p">(</span><span class="n">matrices</span><span class="p">[</span><span class="n">año</span><span class="p">],</span> <span class="n">provincias_significativas</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14132,6 +14188,29 @@ Name: Provincia, dtype: object</pre>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>En este gráfico suavizado, donde agrupamos las provincias por CCAA, podemos visualizar la mayor frecuencia de nacidos de padres procedentes de la misma provincia (línea oscura diagonal), y también de nacidos con padres procedentes de la misma Comunidad Autónoma (cuadrados rodeados de lineas discontinuas centrados en la diagonal). Asímismo, podemos ver que los procedentes de las provincias de Madrid y Barcelona engendran una cantidad no despreciable de hijos con personas procedents de prácticamente cualquier otra de las provincias de España</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="fidelidad_provincial"></a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="text-align:justify"><span style="color:blue; font-family:Georgia; font-size:2em;">[II] Fidelidad Provincial</span></div>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
