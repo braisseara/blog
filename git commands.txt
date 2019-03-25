@@ -1,0 +1,19 @@
+git clone https://github.com/braisseara/blog
+git remote add origin https://github.com/braisseara/blog
+git remote set-url origin https://github.com/braisseara/blog
+
+git init
+git add .
+git commit -m "inicial commit"
+git push origin master
+git push -f origin master
+
+git commit 
+***
+press "i"
+write your merge message
+press "esc"
+write ":wq"
+then press enter
+***
+
