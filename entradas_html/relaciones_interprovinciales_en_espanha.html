@@ -13129,8 +13129,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a name="main"></a></p>
-
+<link rel="shortcut icon" href="../assets/favicon.ico">
 </div>
 </div>
 </div>
@@ -14259,7 +14258,7 @@ Name: Provincia, dtype: object</pre>
         <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">:</span>
             <span class="n">matriz_sexo_diferencial</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">matrices</span><span class="p">[</span><span class="n">año</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">matrices</span><span class="p">[</span><span class="n">año</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">matriz_sexo_diferencial</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>   <span class="c1"># queremos colorear la diagonal solamente para no perder la referencia</span>
+            <span class="n">matriz_sexo_diferencial</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># queremos que se coloree la diagonal, solo para tenerla como referencia</span>
 </pre></div>
 
     </div>
